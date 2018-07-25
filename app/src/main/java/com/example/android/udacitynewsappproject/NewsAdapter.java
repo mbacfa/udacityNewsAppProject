@@ -7,8 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 public class NewsAdapter extends ArrayAdapter<News> {
@@ -91,42 +89,15 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // Display the location offset of the current earthquake in that TextView
         authorNameView.setText(authorName);
 
-        // Create a new Date object
-        Date dateObject = new Date(currentNews.getPublicationTime());
-
         // Find the TextView with view ID date
         TextView dateView = (TextView) listItemView.findViewById(R.id.date);
-        // Format the date string (i.e. "Oct 16, 1986")
-        String formattedDate = formatDate(dateObject);
+        String publicationDate = currentNews.getPublicationTime();
         // Display the date in that TextView
-        dateView.setText(formattedDate);
-
-        // Find the TextView with view ID time
-        TextView timeView = (TextView) listItemView.findViewById(R.id.time);
-        // Format the time string (i.e. "4:30PM")
-        String formattedTime = formatTime(dateObject);
-        // Display the time of the current earthquake in that TextView
-        timeView.setText(formattedTime);
+        dateView.setText(publicationDate);
 
         // Return the list item view that is now showing the appropriate data
         return listItemView;
     }
 
-
-    /**
-     * Return the formatted date string (i.e. "Mar 3, 1984") from a Date object.
-     */
-    private String formatDate(Date dateObject) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("LLL dd, yyyy");
-        return dateFormat.format(dateObject);
-    }
-
-    /**
-     * Return the formatted date string (i.e. "4:30 PM") from a Date object.
-     */
-    private String formatTime(Date dateObject) {
-        SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm a");
-        return timeFormat.format(dateObject);
-    }
 
 }
