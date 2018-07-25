@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class NewsAdapter extends ArrayAdapter<News> {
 
@@ -68,8 +69,8 @@ public class NewsAdapter extends ArrayAdapter<News> {
             // Split the string into different parts (as an array of Strings)
             // based on the " | " symbol. We expect an array of 2 Strings, where
             // the first String will be title and the second String will be author.
-            String[] parts = title.split(AUTHOR_SEPARATOR);
-            articleTitle = parts[0] + AUTHOR_SEPARATOR;
+            String[] parts = title.split(Pattern.quote(AUTHOR_SEPARATOR));
+            articleTitle = parts[0];
             authorName = parts[1];
         } else {
             // Otherwise, there is no " | " symbol in the title string.
