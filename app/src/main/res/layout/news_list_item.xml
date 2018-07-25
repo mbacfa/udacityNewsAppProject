@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:orientation="horizontal"
+    android:paddingEnd="@dimen/standard_padding"
+    android:paddingLeft="@dimen/standard_padding"
+    android:paddingRight="@dimen/standard_padding"
+    android:paddingStart="@dimen/standard_padding">
+
+    <TextView
+        android:id="@+id/section_title"
+        android:layout_width="@dimen/section_title_width"
+        android:layout_height="@dimen/section_title_height"
+        android:layout_gravity="center_vertical"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/standard_font"
+        tools:text="Sport" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/standard_padding"
+        android:layout_marginStart="@dimen/standard_padding"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/author_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:textAllCaps="true"
+            android:textColor="@color/textColorAuthorDetails"
+            android:textSize="@dimen/author_font"
+            tools:text="Leo Tolstoy" />
+
+        <TextView
+            android:id="@+id/news_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/textColorNewsTitle"
+            android:textSize="@dimen/standard_font"
+            tools:text="Long placeholder location that should wrap to more than 2 lines of text" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/standard_padding"
+        android:layout_marginStart="@dimen/standard_padding"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:textColor="@color/textColorTimeDetails"
+            android:textSize="@dimen/time_font"
+            tools:text="Mar 6, 2018" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:textColor="@color/textColorTimeDetails"
+            android:textSize="@dimen/time_font"
+            tools:text="3:00 PM" />
+
+    </LinearLayout>
+</LinearLayout>

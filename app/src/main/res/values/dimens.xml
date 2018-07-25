@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="standard_padding">16dp</dimen>
+    <dimen name="section_title_width">48dp</dimen>
+    <dimen name="section_title_height">36dp</dimen>
+    <dimen name="standard_font">16sp</dimen>
+    <dimen name="author_font">12sp</dimen>
+    <dimen name="time_font">12sp</dimen>
+</resources>
