@@ -7,5 +7,5 @@
     <string name="settings_title">News Settings</string>
     <string name="settings_topic_category_label">Topic Category</string>
     <string name="settings_topic_category_key" translatable="false">topic_category</string>
-    <string name="settings_topic_category_default" translatable="false">Opinion</string>
+    <string name="settings_topic_category_default" translatable="false">sport</string>
 </resources>

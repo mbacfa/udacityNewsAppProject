@@ -5,10 +5,12 @@ import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,7 +31,7 @@ public class NewsActivity extends AppCompatActivity
      * URL for news data from the Guardian
      */
     private static final String GUARDIAN_REQUEST_URL =
-            "https://content.guardianapis.com/search?q=debate&tag=politics/politics&from-date=2018-07-20&api-key=73cb7114-a4fa-4d30-8191-8956d1c89617";
+            "https://content.guardianapis.com/search";
 
     /**
      * Constant value for the news loader ID.
@@ -112,9 +114,30 @@ public class NewsActivity extends AppCompatActivity
 
 
     @Override
+    // onCreateLoader instantiates and returns a new Loader for the given ID
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
-        // Create a new loader for the given URL
-        return new NewsLoader(this, GUARDIAN_REQUEST_URL);
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        // getString retrieves a String value from the preferences. The second parameter is the default value for this preference.
+        String topicCategory = sharedPrefs.getString(
+                getString(R.string.settings_topic_category_key),
+                getString(R.string.settings_topic_category_default));
+
+        // parse breaks apart the URI string that's passed into its parameter
+        Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
+
+        // buildUpon prepares the baseUri that we just parsed so we can add query parameters to it
+        Uri.Builder uriBuilder = baseUri.buildUpon();
+
+        // Append query parameter and its value.
+        uriBuilder.appendQueryParameter("q", topicCategory);
+        uriBuilder.appendQueryParameter("from-date", "2018-07-20");
+        uriBuilder.appendQueryParameter("api-key", "73cb7114-a4fa-4d30-8191-8956d1c89617");
+
+        // Return the completed uri
+        return new NewsLoader(this, uriBuilder.toString());
+
     }
 
     @Override
