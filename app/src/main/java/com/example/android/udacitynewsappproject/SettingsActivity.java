@@ -24,6 +24,9 @@ public class SettingsActivity extends AppCompatActivity {
 
             Preference topicCategory = findPreference(getString(R.string.settings_topic_category_key));
             bindPreferenceSummaryToValue(topicCategory);
+
+            Preference fromDate = findPreference(getString(R.string.settings_from_date_key));
+            bindPreferenceSummaryToValue(fromDate);
         }
 
         @Override

@@ -8,4 +8,12 @@
         android:key="@string/settings_topic_category_key"
         android:selectAllOnFocus="true"
         android:title="@string/settings_topic_category_label" />
+
+    <EditTextPreference
+        android:defaultValue="@string/settings_from_date_default"
+        android:inputType="date"
+        android:key="@string/settings_from_date_key"
+        android:selectAllOnFocus="true"
+        android:title="@string/settings_from_date_label" />
+
 </PreferenceScreen>

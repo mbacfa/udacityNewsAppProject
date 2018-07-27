@@ -124,6 +124,10 @@ public class NewsActivity extends AppCompatActivity
                 getString(R.string.settings_topic_category_key),
                 getString(R.string.settings_topic_category_default));
 
+        String fromDate = sharedPrefs.getString(
+                getString(R.string.settings_from_date_key),
+                getString(R.string.settings_from_date_default));
+
         // parse breaks apart the URI string that's passed into its parameter
         Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
 
@@ -132,7 +136,7 @@ public class NewsActivity extends AppCompatActivity
 
         // Append query parameter and its value.
         uriBuilder.appendQueryParameter("q", topicCategory);
-        uriBuilder.appendQueryParameter("from-date", "2018-07-20");
+        uriBuilder.appendQueryParameter("from-date", fromDate);
         uriBuilder.appendQueryParameter("api-key", "73cb7114-a4fa-4d30-8191-8956d1c89617");
 
         // Return the completed uri
